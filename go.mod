@@ -1,6 +1,6 @@
 module github.com/nmollerup/sensu-check-load
 
-go 1.22.2
+go 1.25
 
 require (
 	github.com/sensu-community/sensu-plugin-sdk v0.11.0
