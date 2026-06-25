@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/sensu-community/sensu-plugin-sdk/sensu"
-	"github.com/sensu/sensu-go/types"
+	corev2 "github.com/sensu/sensu-go/api/core/v2"
+	"github.com/sensu/sensu-plugin-sdk/sensu"
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/load"
 )
@@ -29,52 +29,52 @@ var (
 		},
 	}
 
-	options = []*sensu.PluginConfigOption{
-		{
+	options = []sensu.ConfigOption{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "warn-load1",
 			Argument:  "warn-load1",
 			Shorthand: "",
-			Default:   float64(2.75),
+			Default:   2.75,
 			Usage:     "Warning threshold for 1-minute per-core load average",
 			Value:     &plugin.WarnLoad1,
 		},
-		{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "warn-load5",
 			Argument:  "warn-load5",
 			Shorthand: "",
-			Default:   float64(2.5),
+			Default:   2.5,
 			Usage:     "Warning threshold for 5-minute per-core load average",
 			Value:     &plugin.WarnLoad5,
 		},
-		{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "warn-load15",
 			Argument:  "warn-load15",
 			Shorthand: "",
-			Default:   float64(2.0),
+			Default:   2.0,
 			Usage:     "Warning threshold for 15-minute per-core load average",
 			Value:     &plugin.WarnLoad15,
 		},
-		{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "crit-load1",
 			Argument:  "crit-load1",
 			Shorthand: "",
-			Default:   float64(3.5),
+			Default:   3.5,
 			Usage:     "Critical threshold for 1-minute per-core load average",
 			Value:     &plugin.CritLoad1,
 		},
-		{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "crit-load5",
 			Argument:  "crit-load5",
 			Shorthand: "",
-			Default:   float64(3.25),
+			Default:   3.25,
 			Usage:     "Critical threshold for 5-minute per-core load average",
 			Value:     &plugin.CritLoad5,
 		},
-		{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "crit-load15",
 			Argument:  "crit-load15",
 			Shorthand: "",
-			Default:   float64(3.0),
+			Default:   3.0,
 			Usage:     "Critical threshold for 15-minute per-core load average",
 			Value:     &plugin.CritLoad15,
 		},
@@ -86,7 +86,7 @@ func main() {
 	check.Execute()
 }
 
-func checkArgs(event *types.Event) (int, error) {
+func checkArgs(event *corev2.Event) (int, error) {
 	if plugin.CritLoad1 < plugin.WarnLoad1 {
 		return sensu.CheckStateWarning, fmt.Errorf("--crit-load1 must be >= --warn-load1")
 	}
@@ -99,7 +99,7 @@ func checkArgs(event *types.Event) (int, error) {
 	return sensu.CheckStateOK, nil
 }
 
-func executeCheck(event *types.Event) (int, error) {
+func executeCheck(event *corev2.Event) (int, error) {
 	avg, err := load.Avg()
 	if err != nil {
 		return sensu.CheckStateCritical, fmt.Errorf("failed to read load average: %v", err)
