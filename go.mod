@@ -7,7 +7,7 @@ require (
 	github.com/sensu/sensu-go/api/core/v2 v2.3.0
 	github.com/sensu/sensu-go/types v0.3.0
 	github.com/shirou/gopsutil/v3 v3.20.11
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.11.1
 )
 
 require (
