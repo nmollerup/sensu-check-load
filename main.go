@@ -132,7 +132,7 @@ func executeCheck(event *types.Event) (int, error) {
 	}
 
 	fmt.Printf("%s %s: Per core load average (%d CPU): %.2f, %.2f, %.2f | %s\n",
-		plugin.PluginConfig.Name, status, cpuCount, load1, load5, load15, perfData)
+		plugin.Name, status, cpuCount, load1, load5, load15, perfData)
 
 	return state, nil
 }
