@@ -6,13 +6,12 @@ require (
 	github.com/sensu/sensu-go/api/core/v2 v2.14.0
 	github.com/sensu/sensu-plugin-sdk v0.16.0
 	github.com/shirou/gopsutil/v3 v3.24.5
-	github.com/stretchr/testify v1.11.1
+	github.com/stretchr/testify v1.12.1
 )
 
 require (
 	github.com/blang/semver/v4 v4.0.0 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
-	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/echlebek/timeproxy v1.0.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
@@ -27,7 +26,6 @@ require (
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
-	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c // indirect
 	github.com/robertkrimen/otto v0.0.0-20221006114523-201ab5b34f52 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
@@ -46,6 +44,7 @@ require (
 	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	go.etcd.io/etcd/api/v3 v3.5.10 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/sys v0.45.0 // indirect
 	golang.org/x/text v0.37.0 // indirect
@@ -56,5 +55,4 @@ require (
 	gopkg.in/ini.v1 v1.51.0 // indirect
 	gopkg.in/sourcemap.v1 v1.0.5 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
